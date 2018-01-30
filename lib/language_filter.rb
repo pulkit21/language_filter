@@ -145,7 +145,7 @@ module LanguageFilter
       when Pathname then content.exist?                       || raise(LanguageFilter::UnkownContentFile.new("List content file \"#{content}\" can't be found."))
       when Symbol   then
         case content
-        when :default, :hate, :profanity, :sex, :violence then true
+        when :default, :hate, :profanity, :privacy, :sex, :violence then true
         else raise(LanguageFilter::UnkownContent.new("The only accepted symbols are :default, :hate, :profanity, :sex, and :violence."))
         end
       else raise LanguageFilter::UnkownContent.new("The list content can be either an Array, Pathname, or String path to a file.")
@@ -164,6 +164,7 @@ module LanguageFilter
     def set_list_content(list,options={})
       case list
       when :hate      then load_list File.dirname(__FILE__) + "/../config/#{options[:folder] || "matchlists"}/hate.txt"
+      when :privacy then load_list File.dirname(__FILE__) + "/../config/#{options[:folder] || "matchlists"}/privacy.txt"
       when :profanity then load_list File.dirname(__FILE__) + "/../config/#{options[:folder] || "matchlists"}/profanity.txt"
       when :sex       then load_list File.dirname(__FILE__) + "/../config/#{options[:folder] || "matchlists"}/sex.txt"
       when :violence  then load_list File.dirname(__FILE__) + "/../config/#{options[:folder] || "matchlists"}/violence.txt"
