@@ -113,6 +113,7 @@ Both of these lists can take four different kinds of inputs.
 By default, LanguageFilter comes with four different matchlists, each screening for a different category of language. These filters are accessible via:
 
 - `matchlist: :hate` (for hateful language, like `f**k you`, `b***h`, or `f*g`)
+- `matchlist: :privacy` (for email and phone numbers such as  test.example.com, like `******************`)
 - `matchlist: :profanity` (for swear/cuss words and phrases)
 - `matchlist: :sex` (for content of a sexual nature)
 - `matchlist: :violence` (for language indicating violence, such as `stab`, `gun`, or `murder`)
@@ -222,7 +223,7 @@ For example:
 
 ``` ruby
 my_filter = LanguageFilter::Filter.new(
-                                        matchlist: ['dogs?'], 
+                                        matchlist: ['dogs?'],
                                         exceptionlist: ['dogs drool'],
                                         replacement: :garbled
                                       )
@@ -269,7 +270,7 @@ end
 
 ``` ruby
 # yells at users if they try to sneak in a dirty username, letting them know exactly why the username they wanted was rejected
-validate :clean_username 
+validate :clean_username
 
 def clean_username
   profanity_filter = LanguageFilter::Filter.new matchlist: :profanity
