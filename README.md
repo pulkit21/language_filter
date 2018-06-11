@@ -113,7 +113,7 @@ Both of these lists can take four different kinds of inputs.
 By default, LanguageFilter comes with four different matchlists, each screening for a different category of language. These filters are accessible via:
 
 - `matchlist: :hate` (for hateful language, like `f**k you`, `b***h`, or `f*g`)
-- `matchlist: :privacy` (for email and phone numbers such as  test.example.com, like `******************`)
+- `matchlist: :privacy` (for email, phone numbers and URLs)
 - `matchlist: :profanity` (for swear/cuss words and phrases)
 - `matchlist: :sex` (for content of a sexual nature)
 - `matchlist: :violence` (for language indicating violence, such as `stab`, `gun`, or `murder`)
